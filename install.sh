@@ -1,14 +1,32 @@
 #!/bin/bash
 
-# Link to ~/.vimrc
-echo "Creating symlink to ~/.vimrc"
-ln -s -f $PWD/vimrc ~/.vimrc
+# vimrc configuration
+echo "Updating ~/.vimrc and ~/.vim"
+cp $PWD/vim/vimrc ~/.vimrc
 
-# Link to ~/.bashrc
-echo "Creating symlink to ~/.bashrc"
-ln -s -f $PWD/bashrc ~/.bashrc
+# update vim
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update
+sudo apt install vim
+
+# installing Vundle
+mkdir -p ~/.vim/bundle/Vundle.vim
+cp -r $PWD/vim/Vundle.vim ~/.vim/bundle
+vim +PluginInstall +qall
+
+# installing YouCompleteMe
+sudo apt-get install build-essential cmake
+sudo apt-get install python-dev python3-dev
+sudo cp -rf $PWD/vim/YouCompleteMe ~/.vim/bundle/YouCompleteMe
+sudo cp -rf $PWD/vim/YouCompleteMe/third_party/ycmd/* ~/.vim/bundle/YouCompleteMe/third_party/ycmd/*
+python ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
+
+# bashrc configuration
+echo "Updating ~/.bashrc"
+cp $PWD/bash/bashrc ~/.bashrc
 source ~/.bashrc
 
-# Link to ~/.config/terminator
-echo "Creating symlink to ~/.config/terminator"
-ln -s -f $PWD/terminator_config ~/.config/terminator/config
+# terminator configuration
+echo "Updating ~/.config/terminator"
+mkdir -p ~/.config/terminator
+cp $PWD/terminator/terminator_config ~/.config/terminator/config

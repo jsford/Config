@@ -1,0 +1,6 @@
+[submodule "vim/YouCompleteMe"]
+	path = vim/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "vim/Vundle.vim"]
+	path = vim/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
