@@ -788,9 +788,6 @@ _killall()
 
 complete -F _killall killall killps
 
-
-
-# Local Variables:
-# mode:shell-script
-# sh-shell:bash
-# End:
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
