@@ -788,9 +788,5 @@ _killall()
 
 complete -F _killall killall killps
 
-
-
-# Local Variables:
-# mode:shell-script
-# sh-shell:bash
-# End:
+# Eigen Installation Path
+export EIGEN3_INCLUDE_DIR=/usr/include/eigen3
