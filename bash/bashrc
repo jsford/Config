@@ -788,5 +788,10 @@ _killall()
 
 complete -F _killall killall killps
 
+# Bash autocomplete
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
 # Eigen Installation Path
 export EIGEN3_INCLUDE_DIR=/usr/include/eigen3
